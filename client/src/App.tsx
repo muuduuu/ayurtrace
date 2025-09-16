@@ -10,22 +10,39 @@ import Dashboard from "@/pages/dashboard";
 import BatchTracking from "@/pages/batch-tracking";
 import SensorData from "@/pages/sensor-data";
 import QRScanner from "@/pages/qr-scanner";
+import LoginPage from "@/pages/login"; // ⬅️ add this
 
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
 
   return (
     <Switch>
-      {isLoading || !isAuthenticated ? (
-        <Route path="/" component={Landing} />
-      ) : (
-        <>
-          <Route path="/" component={Dashboard} />
-          <Route path="/batch-tracking" component={BatchTracking} />
-          <Route path="/sensor-data" component={SensorData} />
-          <Route path="/qr-scanner" component={QRScanner} />
-        </>
-      )}
+      {/* Public routes */}
+      <Route path="/" component={Landing} />
+      <Route path="/login" component={LoginPage} />
+
+      {/* Protected routes */}
+      <Route path="/dashboard">
+        {isLoading ? (
+          <div className="p-6">Loading…</div>
+        ) : isAuthenticated ? (
+          <Dashboard />
+        ) : (
+          <LoginPage />
+        )}
+      </Route>
+
+      <Route path="/batch-tracking">
+        {isAuthenticated ? <BatchTracking /> : <LoginPage />}
+      </Route>
+      <Route path="/sensor-data">
+        {isAuthenticated ? <SensorData /> : <LoginPage />}
+      </Route>
+      <Route path="/qr-scanner">
+        {isAuthenticated ? <QRScanner /> : <LoginPage />}
+      </Route>
+
+      {/* Fallback */}
       <Route component={NotFound} />
     </Switch>
   );
