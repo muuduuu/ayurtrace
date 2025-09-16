@@ -15,7 +15,7 @@ export default function Landing() {
             <span className="text-xl font-bold text-foreground">AyurTrace</span>
           </div>
           <Button 
-            onClick={() => window.location.href = '/api/login'}
+            onClick={() => window.location.href = '/login'}
             className="bg-primary text-primary-foreground hover:opacity-90"
             data-testid="button-login"
           >
@@ -38,7 +38,7 @@ export default function Landing() {
           </p>
           <Button 
             size="lg"
-            onClick={() => window.location.href = '/api/login'}
+            onClick={() => window.location.href = '/login'}
             className="bg-primary text-primary-foreground hover:opacity-90 text-lg px-8 py-3"
             data-testid="button-get-started"
           >
