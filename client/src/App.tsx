@@ -11,6 +11,9 @@ import BatchTracking from "@/pages/batch-tracking";
 import SensorData from "@/pages/sensor-data";
 import QRScanner from "@/pages/qr-scanner";
 import LoginPage from "@/pages/login"; // ⬅️ add this
+import QREntryPage from "@/pages/qr";
+import QRDetailsPage from "@/pages/qr-details";
+
 
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
@@ -20,6 +23,9 @@ function Router() {
       {/* Public routes */}
       <Route path="/" component={Landing} />
       <Route path="/login" component={LoginPage} />
+      <Route path="/qr" component={QREntryPage} />
+      <Route path="/qr/:code" component={QRDetailsPage} />
+
 
       {/* Protected routes */}
       <Route path="/dashboard">

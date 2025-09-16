@@ -17,7 +17,7 @@ import { useState } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const navigation = [
-  { name: "Dashboard", href: "/", icon: BarChart3 },
+  { name: "Dashboard", href: "/dashboard", icon: BarChart3 },
   { name: "Batch Tracking", href: "/batch-tracking", icon: Package },
   { name: "Sensor Data", href: "/sensor-data", icon: Thermometer },
   { name: "QR Scanner", href: "/qr-scanner", icon: QrCode },
