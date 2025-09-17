@@ -62,7 +62,7 @@ export default function StatsGrid() {
     },
     {
       title: "Quality Score",
-      value: `${stats?.qualityScore?.toFixed(1) || 0}%`,
+value: `${Number(stats?.qualityScore ?? 0).toFixed(1)}%`,
       icon: CheckCircle,
       color: "green",
       change: "+2.1%",

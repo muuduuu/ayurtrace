@@ -10,9 +10,11 @@ import Dashboard from "@/pages/dashboard";
 import BatchTracking from "@/pages/batch-tracking";
 import SensorData from "@/pages/sensor-data";
 import QRScanner from "@/pages/qr-scanner";
-import LoginPage from "@/pages/login"; // ⬅️ add this
+import LoginPage from "@/pages/login"; // 
 import QREntryPage from "@/pages/qr";
 import QRDetailsPage from "@/pages/qr-details";
+import ComplianceReportPage from "@/pages/ComplianceReportPage";
+import AddBatchPage from "./pages/AddBatchPage";
 
 
 function Router() {
@@ -40,6 +42,9 @@ function Router() {
 
       <Route path="/batch-tracking">
         {isAuthenticated ? <BatchTracking /> : <LoginPage />}
+      </Route>
+      <Route path="/reports">
+        {isAuthenticated ? <ComplianceReportPage /> : <LoginPage />}
       </Route>
       <Route path="/sensor-data">
         {isAuthenticated ? <SensorData /> : <LoginPage />}
